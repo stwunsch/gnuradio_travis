@@ -37,8 +37,11 @@ matrix:
 
 script:
     - git submodule update --init --recursive
+    - ls volk/
     - mkdir build/ && cd build/
     - cmake ..
+    - pwd
+    - ls ../volk/
     - make
     - ctest
     - make install
