@@ -36,5 +36,9 @@ before_script:
 script:
     - make
     - ctest
+matrix:
+    include:
+        - os: linux
+          dist: trusty
 notifications:
     email: false
