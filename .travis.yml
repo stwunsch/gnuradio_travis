@@ -6,10 +6,17 @@ dist: trusty
 virtualenv:
   system_site_packages: true
 
-before_script:
+before_install:
     # Install packages with apt-get
     - sudo apt-get -qq update
-    - sudo apt-get -y install git-core cmake g++ python-dev swig pkg-config libfftw3-dev libboost1.55-all-dev libcppunit-dev libgsl0-dev libusb-dev libsdl1.2-dev python-wxgtk2.8 doxygen libxi-dev libqt4-opengl-dev libqwt-dev libfontconfig1-dev libxrender-dev python-sip python-sip-dev python-numpy python-cheetah python-lxml
+    - sudo apt-get -y install git-core cmake g++ python-dev swig pkg-config libfftw3-dev libboost1.55-all-dev libcppunit-dev libgsl0-dev libusb-dev libsdl1.2-dev python-wxgtk2.8 doxygen libxi-dev libqt4-opengl-dev pyqt4-dev-tools libqwt-dev libfontconfig1-dev libxrender-dev python-sip python-sip-dev
+    # Because we are running with a virtualenv, install python packages via pip.
+    # Otherwise, they won't show up later on.
+    - pip install numpy cheetah lxml
+
+install:
+    # Install PyQt4 from source
+    - which python
 
 script:
     # Why does this not work?
