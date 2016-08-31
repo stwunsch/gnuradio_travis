@@ -35,7 +35,8 @@ matrix:
           dist: trusty
 
 before_script:
-    - git submodule update --init --recursive
+    - git pull --recurse-submodules=on
+    - git submodule update
     - mkdir build && cd build
     - cmake ..
 
