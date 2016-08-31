@@ -12,7 +12,6 @@ script:
     - which python
     - python --version
     - python test_cheetah.py
-    - pip install numpy
     - python test_numpy.py
     - mkdir build/ && cd build/
     - cmake ..
