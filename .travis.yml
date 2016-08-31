@@ -17,7 +17,9 @@ install:
     # Install PyQt4 from source
 
 script:
-    - git submodule update --init --recursive
+    # Why this does not work?
+    #- git submodule update --init --recursive
+    - git clone https://github.com/gnuradio/volk
     - mkdir build/ && cd build/
     - cmake ..
     - make -j4
