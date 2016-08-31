@@ -34,10 +34,9 @@ matrix:
           sudo: required
 
 script:
-    - git submodule update --init --recursive
-    - ls volk/
+    # Why does this not work?
+    #- git submodule update --init --recursive
     - git clone https://github.com/gnuradio/volk
-    - ls volk/
     - mkdir build/ && cd build/
     - cmake ..
     - make
