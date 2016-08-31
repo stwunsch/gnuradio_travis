@@ -11,7 +11,6 @@ script:
     - git clone https://github.com/gnuradio/volk
     - deactivate
     - which python
-    - export PYTHONPATH=/
     - python --version
     - python test_cheetah.py
     - python test_numpy.py
