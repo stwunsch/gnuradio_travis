@@ -3,11 +3,9 @@ os: linux
 sudo: required
 dist: trusty
 
-before_script:
+script:
     - sudo apt-get -qq update
     - sudo apt-get -y install git-core cmake g++ python-dev swig pkg-config libfftw3-dev libboost1.55-all-dev libcppunit-dev libgsl0-dev libusb-dev libsdl1.2-dev python-wxgtk2.8 python-numpy python-cheetah python-lxml doxygen libxi-dev libqt4-opengl-dev libqwt-dev libfontconfig1-dev libxrender-dev python-sip python-sip-dev
-
-script:
     # Why does this not work?
     #- git submodule update --init --recursive
     - git clone https://github.com/gnuradio/volk
