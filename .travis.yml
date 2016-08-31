@@ -10,6 +10,7 @@ before_install:
     # Because we are running with a virtualenv, install python packages via pip.
     # Otherwise, they won't show up later on. See here:
     # https://docs.travis-ci.com/user/languages/python
+    - pip install --upgrade pip
     - pip install numpy cheetah lxml
 
 install:
@@ -19,7 +20,7 @@ script:
     - git submodule update --init --recursive
     - mkdir build/ && cd build/
     - cmake ..
-    - make
+    - make -j4
     - ctest
     - make install
 
