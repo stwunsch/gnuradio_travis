@@ -36,6 +36,7 @@ matrix:
           sudo: required
 
 script:
+    - mkdir volk/
     - pwd
     - ls
     - git submodule update --init --recursive
