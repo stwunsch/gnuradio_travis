@@ -22,7 +22,7 @@ script:
     - git clone https://github.com/gnuradio/volk
     - mkdir build/ && cd build/
     - cmake ..
-    - CPU_CORES=$(grep -c ^processor /proc/cpuinfo) && echo $CPU_CORES
+    - CPU_CORES=$(grep -c ^processor /proc/cpuinfo) && echo 'Numer of CPU cores available:' $CPU_CORES
     - make -j $CPU_CORES
     - ctest
     - make install
