@@ -33,6 +33,7 @@ matrix:
     include:
         - os: linux
           dist: trusty
+          sudo: required
 
 script:
     - git submodule update --init --recursive
