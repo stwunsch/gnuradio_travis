@@ -4,22 +4,22 @@ sudo: required
 dist: trusty
 
 before_install:
-    # Setup virtualenv on system python
-    # NOTE: This is disencouraged because you can't change the python version
-    # in hte build matrix
-    - virtualenv -p /usr/bin/python2.7 --system-site-packages env
     # Install packages with apt-get
     - sudo apt-get -qq update
     - sudo apt-get -y install git-core cmake g++ python-dev swig pkg-config libfftw3-dev libboost1.55-all-dev libcppunit-dev libgsl0-dev libusb-dev libsdl1.2-dev python-wxgtk2.8 doxygen libxi-dev libqt4-opengl-dev pyqt4-dev-tools libqwt-dev libfontconfig1-dev libxrender-dev python-sip python-sip-dev python-numpy python-cheetah python-lxml
 
-install:
-    # Install PyQt4 from source
-    - which python
+before_script:
+    # Setup virtualenv on system python
+    # NOTE: This is disencouraged because you can't change the python version
+    # in hte build matrix
+    - virtualenv -p /usr/bin/python2.7 --system-site-packages env
 
 script:
     # Why does this not work?
     # Make a stupid clone instead, investigate later
     #- git submodule update --init --recursive
+    - which python
+    - echo $PYTHONPATH
     - git clone https://github.com/gnuradio/volk
     - mkdir build/ && cd build/
     - cmake ..
