@@ -1,10 +1,8 @@
 addons:
     apt:
         packages:
-            - git-core
             - cmake
             - g++
-            - python-dev
             - swig
             - pkg-config
             - libfftw3-dev
@@ -13,19 +11,19 @@ addons:
             - libgsl0-dev
             - libusb-dev
             - libsdl1.2-dev
-            - python-wxgtk2.8
-            - python-numpy
-            - python-cheetah
-            - python-lxml
-            - doxygen
             - libxi-dev
-            - python-sip
             - libqt4-opengl-dev
             - libqwt-dev
             - libfontconfig1-dev
             - libxrender-dev
+            - python-dev
+            - python-wxgtk2.8
+            - python-numpy
+            - python-cheetah
+            - python-lxml
             - python-sip
             - python-sip-dev
+            - doxygen
 
 language: cpp
 
