@@ -19,11 +19,11 @@ install:
 script:
     # Why this does not work?
     #- git submodule update --init --recursive
-    - grep -c ^processor /proc/cpuinfo
     - git clone https://github.com/gnuradio/volk
     - mkdir build/ && cd build/
     - cmake ..
-    - make -j8
+    - CPU_CORES=$(grep -c ^processor /proc/cpuinfo) && echo $CPU_CORES
+    - make -j $CPU_CORES
     - ctest
     - make install
 
