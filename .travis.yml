@@ -11,6 +11,7 @@ script:
     - git clone https://github.com/gnuradio/volk
     - python --version
     - python test_cheetah.py
+    - pip install numpy
     - python test_numpy.py
     - mkdir build/ && cd build/
     - cmake ..
