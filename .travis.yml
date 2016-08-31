@@ -11,6 +11,7 @@ script:
     # Why does this not work?
     #- git submodule update --init --recursive
     - git clone https://github.com/gnuradio/volk
+    - python --version
     - python test_cheetah.py
     - python test_numpy.py
     - mkdir build/ && cd build/
