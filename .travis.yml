@@ -6,21 +6,17 @@ dist: trusty
 before_install:
     # Install packages with apt-get
     - sudo apt-get -qq update
-    - sudo apt-get -y install git-core cmake g++ python-dev swig pkg-config libfftw3-dev libboost1.55-all-dev libcppunit-dev libgsl0-dev libusb-dev libsdl1.2-dev python-wxgtk2.8 doxygen libxi-dev libqt4-opengl-dev pyqt4-dev-tools libqwt-dev libfontconfig1-dev libxrender-dev python-sip python-sip-dev python-numpy python-cheetah python-lxml
+    - sudo apt-get -y install git-core cmake g++ python-dev swig pkg-config libfftw3-dev libboost1.55-all-dev libcppunit-dev libgsl0-dev libusb-dev libsdl1.2-dev python-wxgtk2.8 doxygen libxi-dev libqt4-opengl-dev pyqt4-dev-tools libqwt-dev libfontconfig1-dev libxrender-dev python-sip python-sip-dev
+    # Because we are running with a virtualenv, install python packages via pip.
+    # Otherwise, they won't show up later on. See here:
+    # https://docs.travis-ci.com/user/languages/python
+    - pip install numpy cheetah lxml
 
-before_script:
-    # Setup virtualenv on system python
-    # NOTE: This is disencouraged because you can't change the python version
-    # in hte build matrix
-    - virtualenv -p /usr/bin/python2.7 --system-site-packages env
+install:
+    # Install PyQt4 from source
 
 script:
-    # Why does this not work?
-    # Make a stupid clone instead, investigate later
-    #- git submodule update --init --recursive
-    - which python
-    - echo $PYTHONPATH
-    - git clone https://github.com/gnuradio/volk
+    - git submodule update --init --recursive
     - mkdir build/ && cd build/
     - cmake ..
     - make
