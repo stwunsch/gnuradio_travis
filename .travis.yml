@@ -8,7 +8,7 @@ addons:
             - swig
             - pkg-config
             - libfftw3-dev
-            - libboost1.55-all-dev
+            - libboost-all-dev
             - libcppunit-dev
             - libgsl0-dev
             - libusb-dev
