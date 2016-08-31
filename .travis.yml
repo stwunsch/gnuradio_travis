@@ -36,11 +36,14 @@ matrix:
           sudo: required
 
 script:
+    - pwd
+    - ls
     - git submodule update --init --recursive
     - ls volk/
     - mkdir build/ && cd build/
     - cmake ..
     - pwd
+    - ls
     - ls ../volk/
     - make
     - ctest
