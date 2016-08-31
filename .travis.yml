@@ -1,3 +1,27 @@
+language: cpp
+
+matrix:
+    include:
+        - os: linux
+          sudo: required
+          dist: trusty
+
+script:
+    # Why does this not work?
+    #- git submodule update --init --recursive
+    - git clone https://github.com/gnuradio/volk
+    - apt-get install python-cheetah
+    - python test_cheetah.py
+    - python test_numpy.py
+    - mkdir build/ && cd build/
+    - cmake ..
+    - make
+    - ctest
+    - make install
+
+notifications:
+    email: false
+
 addons:
     apt:
         packages:
@@ -24,27 +48,3 @@ addons:
             - python-sip
             - python-sip-dev
             - doxygen
-
-language: cpp
-
-matrix:
-    include:
-        - os: linux
-          sudo: required
-          dist: trusty
-
-script:
-    # Why does this not work?
-    #- git submodule update --init --recursive
-    - git clone https://github.com/gnuradio/volk
-    - apt-get install python-cheetah
-    - python test_cheetah.py
-    - python test_numpy.py
-    - mkdir build/ && cd build/
-    - cmake ..
-    - make
-    - ctest
-    - make install
-
-notifications:
-    email: false
