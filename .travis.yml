@@ -34,15 +34,14 @@ matrix:
         - os: linux
           dist: trusty
 
-before_script:
+script:
     - git pull --recurse-submodules=on
     - git submodule update
     - mkdir build && cd build
     - cmake ..
-
-script:
     - make
     - ctest
+    - make install
 
 notifications:
     email: false
