@@ -22,7 +22,7 @@ script:
     - git clone https://github.com/gnuradio/volk
     - mkdir build/ && cd build/
     - cmake ..
-    - make -j4
+    - make -j8
     - ctest
     - make install
 
