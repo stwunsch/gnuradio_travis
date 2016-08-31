@@ -36,16 +36,12 @@ matrix:
           sudo: required
 
 script:
-    - mkdir volk/
-    - pwd
-    - ls
     - git submodule update --init --recursive
+    - ls volk/
+    - git clone https://github.com/gnuradio/gnuradio
     - ls volk/
     - mkdir build/ && cd build/
     - cmake ..
-    - pwd
-    - ls
-    - ls ../volk/
     - make
     - ctest
     - make install
