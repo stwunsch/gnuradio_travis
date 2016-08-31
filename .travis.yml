@@ -6,6 +6,10 @@ matrix:
           sudo: required
           dist: trusty
 
+before_install:
+    - apt-get update
+    - apt-get -y install git-core cmake g++ python-dev swig pkg-config libfftw3-dev libboost1.55-all-dev libcppunit-dev libgsl0-dev libusb-dev libsdl1.2-dev python-wxgtk2.8 python-numpy python-cheetah python-lxml doxygen libxi-dev libqt4-opengl-dev libqwt-dev libfontconfig1-dev libxrender-dev python-sip python-sip-dev
+
 script:
     # Why does this not work?
     #- git submodule update --init --recursive
@@ -21,30 +25,3 @@ script:
 
 notifications:
     email: false
-
-addons:
-    apt:
-        packages:
-            - cmake
-            - g++
-            - swig
-            - pkg-config
-            - libfftw3-dev
-            - libboost-all-dev
-            - libcppunit-dev
-            - libgsl0-dev
-            - libusb-dev
-            - libsdl1.2-dev
-            - libxi-dev
-            - libqt4-opengl-dev
-            - libqwt-dev
-            - libfontconfig1-dev
-            - libxrender-dev
-            - python-dev
-            - python-wxgtk2.8
-            - python-numpy
-            - python-cheetah
-            - python-lxml
-            - python-sip
-            - python-sip-dev
-            - doxygen
