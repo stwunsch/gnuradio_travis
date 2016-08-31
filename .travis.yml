@@ -27,12 +27,15 @@ addons:
             - python-sip
             - python-sip-dev
 
+language: cpp
+
 matrix:
     include:
         - os: linux
           dist: trusty
 
 before_script:
+    - git submodule update --init --recursive
     - mkdir build && cd build
     - cmake ..
 
