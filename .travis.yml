@@ -17,15 +17,17 @@ install:
     # Install PyQt4 from source
 
 script:
-    # Why this does not work?
+    # Get VOLK
+    # FIXME Why this does not work?
     #- git submodule update --init --recursive
     - git clone https://github.com/gnuradio/volk
+    # Build
     - mkdir build/ && cd build/
     - cmake ..
     - CPU_CORES=$(grep -c ^processor /proc/cpuinfo) && echo 'Numer of CPU cores available:' $CPU_CORES
     - make -j $CPU_CORES
+    # Test
     - ctest
-    - make install
 
 notifications:
     email: false
